@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photo Globe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #fbfbfa; }
+  * { box-sizing: border-box; }
+  .stage {
+    position: relative; width: 100%; height: 100vh; min-height: 640px;
+    background: #fbfbfa; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center;
+    font-family: 'Archivo', system-ui, sans-serif; color: #1a1a19;
+  }
+  .stage__label {
+    position: absolute; top: 32px; left: 0; right: 0; text-align: center;
+    z-index: 20; pointer-events: none;
+    font-family: 'Space Mono', monospace; font-size: 13px;
+    letter-spacing: 0.32em; text-transform: uppercase; color: #26251f;
+  }
+  .stage__globe { position: absolute; inset: 0; z-index: 10; }
+  .stage__hint {
+    position: absolute; bottom: 30px; left: 0; right: 0; z-index: 20;
+    display: flex; justify-content: center;
+  }
+  .stage__hint span {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: 'Space Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.22em; text-transform: uppercase; color: #9a988f;
+  }
+  .stage__hint i {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: #c9c6bc;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="stage__label">Creative Studio</div>
+
+    <!-- Card i shows a slideshow of manifest.cards[i] (i.e. cards/card-(i+1)/). -->
+    <div class="stage__globe" data-photo-globe data-manifest="manifest.json"></div>
+
+    <div class="stage__hint"><span><i></i>Drag to rotate</span></div>
+  </div>
+
+  <script src="photo-globe.js"></script>
+</body>
+</html>
